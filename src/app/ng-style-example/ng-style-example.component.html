@@ -1,0 +1,41 @@
+<div [style.backgroundColor]="'yellow'">
+  Uses fixed yellow background
+</div>
+
+<div [ngStyle]="{color: 'orange', backgroundColor: 'purple'}">
+  Uses fixed orange text on purple background
+</div>
+
+<div>
+  <span [ngStyle]="{color: 'red'}" [style.font-size.px]="fontSize">
+    red text
+  </span>
+</div>
+
+<h4 class="ui horizontal divider header">
+  ngStyle with object property from variable
+</h4>
+
+<div>
+  <span [ngStyle]="{color: color}">{{color}} text</span>
+</div>
+
+<h4 class="ui horizontal divider header">
+  style from variable
+</h4>
+
+<div [style.backgroundColor]="color" style="color: white">
+  {{color}} background
+</div>
+
+<div class="ui input">
+  <input type="text" name="color" value="{{color}}" #colorInput>
+</div>
+
+<div class="ui input">
+  <input type="text" name="fontSize" value="{{fontSize}}" #fontInput>
+</div>
+
+<button class="ui primary button" (click)="apply(colorInput.value, fontInput.value)">
+  Apply Settings
+</button>
